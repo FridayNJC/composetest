@@ -14,7 +14,6 @@ pipeline {
         }
         stage('Build'){
             steps{
-                git 'https://github.com/FridayNJC/composetest.git'
                 script{
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
