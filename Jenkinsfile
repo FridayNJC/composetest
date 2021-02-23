@@ -7,11 +7,11 @@ pipeline {
     agent any
 
     stages {
-        // stage('Checkout') {
-        //     steps {
-        //         checkout([$class: 'GitSCM', branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/FridayNJC/composetest.git']]])
-        //     }
-        // }
+        stage('Cloaning our git') {
+            steps {
+                git 'https://github.com/FridayNJC/composetest.git'
+            }
+        }
         stage('Build'){
             steps{
                 script{
