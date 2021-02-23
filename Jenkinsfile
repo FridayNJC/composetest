@@ -1,7 +1,7 @@
 pipeline {
     environment{
         regsitry = "nileshchudasama/composetest"
-        registryCredential = 'nileshchudasama'
+        registryCredential = 'dockerhub'
         dockerImage = ''
     }
     agent any
