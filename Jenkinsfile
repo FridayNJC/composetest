@@ -7,19 +7,19 @@ pipeline {
     agent any
 
     stages {
-        // stage('Cloaning our git') {
-        //     steps {
-        //         git 'https://github.com/FridayNJC/composetest.git'
-        //     }
-        // }
-        stage('Build'){
+        stage('Cloaning our git') {
+            steps {
+                git 'https://github.com/FridayNJC/composetest.git'
+            }
+        }
+        stage('Building image'){
             steps{
                 script{
                     dockerImage = docker.build registry + ":$BUILD_NUMBER"
                 }
             }
         }
-        stage('Deploy Image'){
+        stage('Deploy image'){
             steps{
                 script{
                     docker.withRegistry('', registryCredential){
