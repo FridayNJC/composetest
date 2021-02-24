@@ -14,23 +14,12 @@ pipeline {
         }
         stage('Building image'){
             steps{
-                script{
-                    dockerImage = docker.build registry + ":$BUILD_NUMBER"
-                }
+                sh 'docker build -t nileshchudasama/composetest:v2 .'
             }
         }
         stage('Deploy image'){
             steps{
-                script{
-                    docker.withRegistry('', registryCredential){
-                        dockerImage.push()
-                    }
-                }
-            }
-        }
-        stage('Test'){
-            steps{
-                sh 'curl http://localhost:5000'
+                sh 'docker push nileshchudasama/composetest:v2'
             }
         }
         stage('Deploy'){

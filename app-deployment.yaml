@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: python-app
-        image: nileshchudasama/composetest:v1
+        image: nileshchudasama/composetest:v2
         ports:
         - containerPort: 5000
 
